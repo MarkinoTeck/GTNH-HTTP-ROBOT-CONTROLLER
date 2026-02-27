@@ -7,12 +7,14 @@
 - [Robot Examples](#robot-examples)
 - [Credits](#credits)
 
+
 <a id="information"></a>
 
 ## Information
 
 Program is designed to control opencomputer robots using http requests.
 And there is also the possibility of auto update at startup.
+
 
 <a id="installation"></a>
 
@@ -55,18 +57,15 @@ After installation is completed, you can take move the 'EEPROM' and the 'Hard Di
 - Hover Upgrade (Tier 2)
 - Chunkloader Upgrade
 - Angel Upgrade
-<br>
-<br>
+- <b>Needed for block placement:</b><br>
+    Inventory controller upgrade<br>
+    ME Upgrade (Tier 3)<br>
+    Database (Tier 1)
 
 Optional Upgrades (one each):
 
 - <b>To use a screen:</b><br>
     Screen + Keyboard + Graphics card
-
-- <b>Needed for secure block placement:</b><br>
-    Inventory controller upgrade<br>
-    ME Upgrade (Tier 3)<br>
-    Database (Tier 1)
 
 
 <a id="robot-examples"></a>
@@ -74,6 +73,7 @@ Optional Upgrades (one each):
 ## Robot Examples:
 
 none yet
+
 
 <a id="credits"></a>
 
