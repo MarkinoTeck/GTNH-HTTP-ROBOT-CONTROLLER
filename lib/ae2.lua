@@ -76,7 +76,6 @@ function ae2_wireless:ceckItem(item_id, item_damage)
         if #itemsInNetwork > 0 then
             return itemsInNetwork[1].size, itemsInNetwork[1].label
         end
-
         return 0, ""
     else
         return 0, "ae2 db error n.821387"
