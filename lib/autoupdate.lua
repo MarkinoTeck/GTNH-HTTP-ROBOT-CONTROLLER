@@ -26,7 +26,10 @@ end
 local function isUpdateNeeded(version, repository)
   if not version or not internet then return false, nil end
 
-  local remote = getLatestVersion(repository)
+  local ok, remote = pcall(getLatestVersion, repository)
+
+  if not ok or not remote then return false, nil end
+  if not version.programVersion or not remote.programVersion then return false, nil end
 
   local current = version.programVersion:gsub("[%D]", "")
   local latest  = remote.programVersion:gsub("[%D]", "")
