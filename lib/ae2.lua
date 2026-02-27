@@ -3,14 +3,14 @@ local robot = require("robot")
 local s = require("serialization")
 
 if not component.isAvailable("upgrade_me") then
-    error("ME Wireless upgrade not found! Make sure the ME Wireless Access Card (Tier 3) is installed to use ae2.")
+    print("ME Wireless upgrade not found! Make sure the ME Wireless Access Card (Tier 3) is installed to use ae2.")
 end
 
 ---@diagnostic disable-next-line: undefined-field
 local me = component.upgrade_me
 
 if not component.isAvailable("database") then
-    error("Database upgrade not found! Make sure the Database Upgrade is installed to use ae2.")
+    print("Database upgrade not found! Make sure the Database Upgrade is installed to use ae2.")
 end
 
 local db = component.database
