@@ -1,15 +1,17 @@
-# GTNH-HTTP-ROBOT-CONTROLLER
+# GTNH-HTTP-Robot-Controller
 
 ## Content
 
 - [Information](#information)
 - [Installation](#installation)
+- [Robot Examples](#robot-examples)
+- [Credits](#credits)
 
 <a id="information"></a>
 
 ## Information
 
-Program is designed to use opencomputer robots using http requests.
+Program is designed to control opencomputer robots using http requests.
 And there is also the possibility of auto update at startup.
 
 <a id="installation"></a>
@@ -21,26 +23,61 @@ And there is also the possibility of auto update at startup.
 > The only way to install the program is to manually transfer it to your computer.
 > The problem is on the java side.
 
-To install program, you need a t2 computer with:
-- Graphics Card (Tier 1+): 1
-- Central Processing Unit (CPU) (Tier 1+): 1
-- Memory (Tier 3.5): 1
-- Hard Disk Drive (Tier 3) (4MB): 1
-- EEPROM (Lua BIOS): 1
-- Internet Card: 1
+To install program, you need a t3 computer with:
+- Graphics Card (Tier 1+)
+- Central Processing Unit (CPU) (Tier 1+)
+- Memory (Tier 3.5)
+- Hard Disk Drive (Tier 3) (4MB)
+- EEPROM (Lua BIOS)
+- Internet Card
 
-Install the basic Open OS on your computer.
-Then run the command to start the installer.
+![Computer Example](/docs/installation_computer.png)
 
+### Downloading softwere using installer:
+
+- Install the basic Open OS on your computer.
+- Then run the command to start the installer.
 ```shell
 wget -f https://raw.githubusercontent.com/MarkinoTeck/GTNH-OC-Installer/main/installer.lua && installer
 ```
+- Select the "Robot" program in the installer.
+- Enable auto restart typing "y" when prompted.
 
-Then select the Water Line Control program in the installer.
-If you wish you can add the program to auto download, for manual start write a command.
+After installation is completed, you can take move the 'EEPROM' and the 'Hard Disk Drive' to the new robot.
 
-Then move the EEPROM and the Hard Disk Drive
+<b>To work the robot equires these upgrades</b> (one each):
 
-```shell
-main
-```
+- EPROMM and Hard Disk Drive <b>with loaded softwere</b>
+- Internet Card
+- Geolyzer
+- Memory (Tier 3.5)
+- Accelerated Processing Unit (APU) (Tier 2+)
+- Hover Upgrade (Tier 2)
+- Chunkloader Upgrade
+- Angel Upgrade
+<br>
+<br>
+
+Optional Upgrades (one each):
+
+- <b>To use a screen:</b><br>
+    Screen + Keyboard + Graphics card
+
+- <b>Needed for secure block placement:</b><br>
+    Inventory controller upgrade<br>
+    ME Upgrade (Tier 3)<br>
+    Database (Tier 1)
+
+
+<a id="robot-examples"></a>
+
+## Robot Examples:
+
+none yet
+
+<a id="credits"></a>
+
+## Credits:
+~~~
+Install Script: based on Navatusein's code
+~~~

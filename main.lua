@@ -7,4 +7,4 @@ autoUpdate(
   "RobotCode"
 )
 
-print("program runs, this works.")
+print("Program runs, this works.")

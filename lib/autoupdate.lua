@@ -58,6 +58,7 @@ end
 ---@param repository string
 ---@param archiveName string
 local function autoUpdate(version, repository, archiveName)
+  term.clear()
   term.setCursor(1, 1)
   term.write("Checking for updates...\n")
 
