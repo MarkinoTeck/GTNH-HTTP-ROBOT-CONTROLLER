@@ -51,6 +51,8 @@ After installation is completed, you can take move the 'EEPROM' and the 'Hard Di
 
 - EPROMM and Hard Disk Drive <b>with loaded softwere</b>
 - Internet Card
+- Navigation Upgrade
+- Inventory Upgrade
 - Geolyzer
 - Memory (Tier 3.5)
 - Accelerated Processing Unit (APU) (Tier 2+)

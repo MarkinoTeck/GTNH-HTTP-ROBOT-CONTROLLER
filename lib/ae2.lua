@@ -1,7 +1,18 @@
 local component = require("component")
 local robot = require("robot")
-local me = component.upgrade_me
 local s = require("serialization")
+
+if not component.isAvailable("upgrade_me") then
+    error("ME Wireless upgrade not found! Make sure the ME Wireless Access Card (Tier 3) is installed to use ae2.")
+end
+
+---@diagnostic disable-next-line: undefined-field
+local me = component.upgrade_me
+
+if not component.isAvailable("database") then
+    error("Database upgrade not found! Make sure the Database Upgrade is installed to use ae2.")
+end
+
 local db = component.database
 
 local ae2_wireless = {}
@@ -35,7 +46,7 @@ function ae2_wireless:takeItem(item_id, item_damage, count)
         if #itemsInNetwork > 0 then
             print(s.serialize(itemsInNetwork[1]))
             available = itemsInNetwork[1].size
-            print("size: "..available)
+            print("size: " .. available)
         end
 
         local total_items_got = 0
@@ -76,6 +87,7 @@ function ae2_wireless:ceckItem(item_id, item_damage)
         if #itemsInNetwork > 0 then
             return itemsInNetwork[1].size, itemsInNetwork[1].label
         end
+
         return 0, ""
     else
         return 0, "ae2 db error n.821387"
