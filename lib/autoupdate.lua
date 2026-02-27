@@ -32,7 +32,7 @@ local function isUpdateNeeded(version, repository)
   local current = version.programVersion:gsub("[%D]", "")
   local latest  = remote.programVersion:gsub("[%D]", "")
 
-  return latest > current, remote.configVersion > version.configVersion, remote
+  return latest > current, false, remote
 end
 
 local function tryDownloadTar()
