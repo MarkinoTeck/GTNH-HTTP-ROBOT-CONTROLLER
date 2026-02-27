@@ -11,7 +11,6 @@ local term       = require("term")
 
 ---@class ProgramVersion
 ---@field programVersion string
----@field configVersion number
 
 local function getLatestVersion(repository)
   local request = internet.request(
@@ -25,14 +24,14 @@ local function getLatestVersion(repository)
 end
 
 local function isUpdateNeeded(version, repository)
-  if not version or not internet then return false, false, nil end
+  if not version or not internet then return false, nil end
 
   local remote = getLatestVersion(repository)
 
   local current = version.programVersion:gsub("[%D]", "")
   local latest  = remote.programVersion:gsub("[%D]", "")
 
-  return latest > current, false, remote
+  return latest ~= current, remote
 end
 
 local function tryDownloadTar()
@@ -47,7 +46,6 @@ end
 local function downloadAndInstall(repository, archiveName)
   local url = "https://github.com/" .. repository .. "/releases/latest/download/" .. archiveName .. ".tar"
   shell.setWorkingDirectory("/home")
-  shell.execute("mv config.lua config.old.lua")
   shell.execute("wget -fq " .. url .. " program.tar")
   shell.execute("tar -xf program.tar")
   shell.execute("rm program.tar")
@@ -62,7 +60,7 @@ local function autoUpdate(version, repository, archiveName)
   term.setCursor(1, 1)
   term.write("Checking for updates...\n")
 
-  local updateNeeded, configChanged, remote = isUpdateNeeded(version, repository)
+  local updateNeeded, remote = isUpdateNeeded(version, repository)
 
   if not updateNeeded or not remote then
     term.write("Already up to date.\n")
