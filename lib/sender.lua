@@ -1,7 +1,7 @@
 -- lib/sender.lua
 local component     = require("component")
 local computer      = require("computer")
-local robot_api     = require("robot")
+local robot_api_avible, robot_api = pcall(require, "robot")
 
 local HttpClient    = require("lib/httpclient")
 local Navlib        = require("lib/navlib")
@@ -110,6 +110,9 @@ function Sender.blocksRadius(radius)
 end
 
 function Sender.touchingEntities()
+    if not robot_api_avible then
+        return error("Sender.touchingEntities() can't be called, this is not a robot.")
+    end
     local posData       = Navlib.getPosition()
     local pos           = { x = posData.x, y = posData.y, z = posData.z }
     local facing        = posData.facing

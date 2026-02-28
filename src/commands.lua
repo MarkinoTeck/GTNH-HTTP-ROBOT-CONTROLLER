@@ -1,6 +1,5 @@
 -- src/commands.lua
-local component     = require("component")
-local robot_api     = require("robot")
+local robot_api_avible, robot_api = pcall(require, "robot")
 
 local HttpClient    = require("lib/httpclient")
 local Navlib        = require("lib/navlib")

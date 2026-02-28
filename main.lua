@@ -11,9 +11,7 @@ autoUpdate(
 local robot_api_avible, robot_api = pcall(require, "robot")
 local Config   = require("lib/config")
 local Sender   = require("lib/sender")
-local Commands = require("src/commands")
 local Setup    = require("src/setup")
-local Loop     = require("src/loop")
 
 local DEFAULTS = {
   id         = false,
@@ -25,12 +23,16 @@ local DEFAULTS = {
 local conf = Config.new("/etc/robot_config.cfg", DEFAULTS)
 
 Sender.init(conf)
-Commands.init(conf)
-Loop.init(conf)
-
 Setup.run(conf, robot_api_avible, robot_api)
 
+
 if robot_api_avible then
+  local Loop =     require("src/loop")
+  local Commands = require("src/commands")
+
+  Loop.init(conf)
+  Commands.init(conf)
+
   while true do
     Loop.tick()
   end
