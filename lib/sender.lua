@@ -178,7 +178,7 @@ function Sender.touchingBlocks()
     }
 
     local payload = { mc_id = conf:get("id"), origin = pos, blocks = {} }
-
+w
     for side = 0, 5 do
         local scan = gz.analyzeSide(side)
         if scan then
