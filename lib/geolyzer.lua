@@ -1,4 +1,5 @@
 local component = require("component")
+---@diagnostic disable-next-line: undefined-field
 local geolyzer = component.geolyzer
 
 local MAX_VOLUME = 64
