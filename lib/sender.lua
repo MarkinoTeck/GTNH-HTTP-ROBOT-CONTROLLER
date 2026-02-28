@@ -31,21 +31,21 @@ end
 function Sender.error(errorMsg)
     print("Sending error to server...")
     local pos = Navlib.getPositionJson()
-    post("/postError", '{"error":"' .. errorMsg .. '","id":' .. robotId() .. ',"pos":' .. pos .. '}')
+    post("/postError", '{"error":"' .. errorMsg .. '","id":"' .. robotId() .. '","pos":' .. pos .. '}')
     print("Done.")
 end
 
 function Sender.batteryLevel()
     print("Sending battery level...")
     ---@diagnostic disable-next-line: undefined-field
-    post("/battery", '{"battery":' .. computer.energy() .. ',"id":' .. robotId() .. '}')
+    post("/battery", '{"battery":' .. computer.energy() .. ',"id":"' .. robotId() .. '"}')
     print("Done.")
 end
 
 function Sender.position()
     print("Sending position...")
     local pos = Navlib.getPositionJson()
-    post("/updatePosition", '{"id":' .. robotId() .. ',"pos":' .. pos .. '}')
+    post("/updatePosition", '{"id":"' .. robotId() .. '","pos":' .. pos .. '}')
     print("Done.")
 end
 
@@ -61,14 +61,14 @@ function Sender.inventoryData()
 
     print("Sending inventoryData...")
     local inv = JsonEncode.encode(inventoryData.getSlots())
-    post("/updateInventory", '{"id":' .. robotId() .. ',"inv":' .. inv .. '}')
+    post("/updateInventory", '{"id":"' .. robotId() .. '","inv":' .. inv .. '}')
     print("Done.")
 end
 
 function Sender.message(msgType, msgNumber, msgString)
     print("Sending message...")
     local message = JsonEncode.encode({ type = msgType, number = msgNumber, string = msgString })
-    post("/postMessage", '{"id":' .. robotId() .. ',"message":' .. message .. '}')
+    post("/postMessage", '{"id":"' .. robotId() .. '","message":' .. message .. '}')
     print("Done.")
 end
 
@@ -177,7 +177,7 @@ function Sender.touchingBlocks()
         [5] = { [2] = { x = -1, y = 0, z = 0 }, [3] = { x = 1, y = 0, z = 0 }, [4] = { x = 0, y = 0, z = 1 }, [5] = { x = 0, y = 0, z = -1 } },
     }
 
-    local payload = { mc_id = conf:get("id"), origin = pos, blocks = {} }
+    local payload = { mc_id = robotId(), origin = pos, blocks = {} }
 
     for side = 0, 5 do
         local scan = gz.analyzeSide(side)
