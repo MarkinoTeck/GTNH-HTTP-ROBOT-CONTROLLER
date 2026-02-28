@@ -19,7 +19,7 @@ local function promptOwner()
     end
 end
 
-function Setup.run(conf, robot_api_avible, robot_api)
+function Setup.run(conf, robot_api)
     local owner = conf:get("owner")
     if not owner or type(owner) ~= "string" or #owner < 8 then
         print("=== OWNER SETUP ===")
@@ -31,7 +31,7 @@ function Setup.run(conf, robot_api_avible, robot_api)
     end
 
     -- On a computer: just save owner locally, never talk to the server
-    if not robot_api_avible then
+    if not robot_api then
         if conf:get("configured") then
             print("Configuration already present.")
             print("Owner: " .. tostring(conf:get("owner")))

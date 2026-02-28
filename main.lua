@@ -8,10 +8,13 @@ autoUpdate(
   "RobotCode"
 )
 
-local robot_api_avible, robot_api = pcall(require, "robot")
-local Config   = require("lib/config")
-local Sender   = require("lib/sender")
-local Setup    = require("src/setup")
+local ok, robot_api = pcall(require, "robot")
+---@diagnostic disable-next-line: cast-local-type
+if not ok then robot_api = nil end
+
+local Config = require("lib/config")
+local Sender = require("lib/sender")
+local Setup  = require("src/setup")
 
 local DEFAULTS = {
   id         = false,
@@ -22,16 +25,15 @@ local DEFAULTS = {
 
 local conf = Config.new("/etc/robot_config.cfg", DEFAULTS)
 
-Sender.init(conf)
-Setup.run(conf, robot_api_avible, robot_api)
+Sender.init(conf, robot_api)
+Setup.run(conf, robot_api)
 
-
-if robot_api_avible then
-  local Loop =     require("src/loop")
+if robot_api then
   local Commands = require("src/commands")
+  local Loop     = require("src/loop")
 
-  Loop.init(conf)
   Commands.init(conf)
+  Loop.init(conf)
 
   while true do
     Loop.tick()
