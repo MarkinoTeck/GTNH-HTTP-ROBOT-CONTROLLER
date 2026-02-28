@@ -5,6 +5,7 @@ local HttpClient = require("lib/httpclient")
 local JsonEncode = require("lib/jsonEncode")
 local Sender     = require("lib/sender")
 local RobotUtils = require("lib/robot_utils")
+local computer   = require("computer")
 
 local Setup      = {}
 
@@ -35,7 +36,7 @@ function Setup.run(conf)
         conf:set("configured", true)
         conf:save()
         print("Got new ID: " .. new_id .. " — restarting.")
-        os.exit()
+        computer.shutdown(true)
     else
         print('Error getting ID (invalid response: "' .. tostring(response) .. '")')
         os.exit()

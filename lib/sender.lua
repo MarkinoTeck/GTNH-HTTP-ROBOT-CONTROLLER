@@ -177,7 +177,7 @@ function Sender.touchingBlocks()
         [5] = { [2] = { x = -1, y = 0, z = 0 }, [3] = { x = 1, y = 0, z = 0 }, [4] = { x = 0, y = 0, z = 1 }, [5] = { x = 0, y = 0, z = -1 } },
     }
 
-    local payload = { origin = pos, blocks = {} }
+    local payload = { mc_id = conf:get("id"), origin = pos, blocks = {} }
 
     for side = 0, 5 do
         local scan = gz.analyzeSide(side)
