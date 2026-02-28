@@ -82,7 +82,7 @@ function Sender.blocksRadius(radius)
     print("Scanning... (radius: " .. radius .. " blocks)")
 
     local robotPos = Navlib.getPosition()
-    local payload  = { blocks = {} }
+    local payload  = { mc_id = robotId(), blocks = {} }
 
     gz.scanVolumeMultiStream(
         -radius, -radius, -radius,
