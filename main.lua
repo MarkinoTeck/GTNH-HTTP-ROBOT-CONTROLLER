@@ -18,7 +18,7 @@ local Loop      = require("src/loop")
 
 local DEFAULTS  = {
   id            = false,
-  ip            = "http://test.url.com",
+  ip            = "http://test.lookitsmark.com",
   configured    = false,
   inventorySize = robot_api.inventorySize(),
 }

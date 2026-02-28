@@ -49,7 +49,7 @@ local Config = require("libs/config")
 
 local defaults = {
     id = false,
-    ip = "http://test.lookitsmark.com",
+    ip = "http://test.url.com",
     configured = false
 }
 
