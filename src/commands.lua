@@ -65,8 +65,8 @@ function Commands.scanAndBreak(scan_id, target_x, target_y, target_z)
     local pos = Navlib.getPosition()
 
     print("=== SCAN AND BREAK ===")
-    print(string.format("Target:  %d,%d,%d", target_x, target_y, target_z))
-    print(string.format("Current: %d,%d,%d", pos.x, pos.y, pos.z))
+    print("Target:  " .. target_x .. "," .. target_y .. "," .. target_z)
+    print("Current: " .. pos.x .. "," .. pos.y .. "," .. pos.z)
 
     if pos.x ~= target_x or pos.y ~= (target_y + 1) or pos.z ~= target_z then
         print("ERROR: Wrong position!")
@@ -104,7 +104,7 @@ function Commands.scanAndBreak(scan_id, target_x, target_y, target_z)
 end
 
 function Commands.getItem(itemName, count, slot)
-    print(itemName, count)
+    print(itemName .. " " .. count)
     local _, err = ae2_wireless:takeItem(itemName, tonumber(count), tonumber(slot))
     if err then print(err) end
     Sender.inventoryData()
@@ -126,10 +126,8 @@ local function resolveAndLog(label, placeFunc, parts)
     local robotFacing   = posData.facing
     local side          = RobotUtils.getRelativeSide(robotFacing, desiredFacing)
 
-    Logger.error(string.format("facing: %s side: %s command: %s, %s",
-        robotFacing, side, parts[2] or "(nil)", desiredFacing))
-    print(string.format("facing: %s side: %s command: %s, %s",
-        robotFacing, side, parts[2] or "(nil)", desiredFacing))
+    Logger.error("facing: " .. robotFacing .. " side: " .. side .. " command: " .. (parts[2] or "(nil)") .. ", " .. desiredFacing)
+    print("facing: " .. robotFacing .. " side: " .. side .. " command: " .. (parts[2] or "(nil)") .. ", " .. desiredFacing)
 
     local done, err = placeFunc(side, true)
     if not done and err then print(err) end
@@ -151,10 +149,8 @@ function Commands.use(parts)
     local robotFacing   = posData.facing
     local side          = RobotUtils.getRelativeSide(robotFacing, desiredFacing)
 
-    Logger.error(string.format("facing: %s side: %s command: %s, %s",
-        robotFacing, side, parts[2], desiredFacing))
-    print(string.format("facing: %s side: %s command: %s, %s",
-        robotFacing, side, parts[2], desiredFacing))
+    Logger.error("facing: " .. robotFacing .. " side: " .. side .. " command: " .. parts[2] .. ", " .. desiredFacing)
+    print("facing: " .. robotFacing .. " side: " .. side .. " command: " .. parts[2] .. ", " .. desiredFacing)
 
     local done, output = robot_api.use(side, parts[3] == "true")
     if not done and output then
