@@ -88,6 +88,9 @@ function Commands.scanAndBreak(scan_id, target_x, target_y, target_z)
             print("Error sending data: " .. err)
         else
             print("Position marked as scanned")
+            if blockInfo.hardness == 0 then
+                Sender.scanBlocksRadius(scan_id, 5)
+            end
         end
 
         local msg = STATUS_MESSAGES[status]

@@ -64,6 +64,45 @@ function Sender.message(msgType, msgNumber, msgString)
     print("Done.")
 end
 
+function Sender.scanBlocksRadius(scan_id, radius)
+    local BATCH_SIZE = 64
+
+    if radius <= 0 or radius > 32 then
+        error("Scan radius error: " .. radius)
+    end
+
+    print("Scanning area for schematic... (radius: " .. radius .. " blocks)")
+
+    local robotPos = nav().getPosition()
+    local payload  = { mc_id = robotId(), scan_id = scan_id, blocks = {} }
+
+    gz().scanVolumeMultiStream(
+        -radius, -radius, -radius,
+        radius * 2 + 1, radius * 2 + 1, radius * 2 + 1,
+        function(b)
+            table.insert(payload.blocks, {
+                pos = {
+                    x = robotPos.x + b.posx,
+                    y = robotPos.y + b.posy,
+                    z = robotPos.z + b.posz,
+                },
+                hardness = b.hardness,
+            })
+
+            if #payload.blocks >= BATCH_SIZE then
+                post("/scanBlocks", JsonEncode.encode(payload))
+                payload.blocks = {}
+            end
+        end
+    )
+
+    if #payload.blocks > 0 then
+        post("/scanBlocks", JsonEncode.encode(payload))
+    end
+
+    print("Done.")
+end
+
 function Sender.blocksRadius(radius)
     local BATCH_SIZE = 64
 
