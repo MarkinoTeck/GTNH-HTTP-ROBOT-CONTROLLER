@@ -65,7 +65,7 @@ function Scanlib.scanBlockBelow(robotPos)
                 block_info.gtMetaId = result.gtMetaId
             end
             if result.sides then
-                block_info.sides = result.sides
+                block_info.ae2sides = result.ae2sides
                 block_info.ae2fcSides = result.ae2fcSides
                 block_info.ae2_cable_multipart = true
                 block_info.hasCable = result.hasCable
