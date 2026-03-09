@@ -106,6 +106,17 @@ function Commands.scanAndBreak(scan_id, target_x, target_y, target_z)
     Sender.inventoryData()
 end
 
+function Commands.breakdown()
+    local success, reason = robot_api.swingDown()
+    if success then
+        os.sleep(0.3)
+        for i = 1, 5 do
+            robot_api.suckDown()
+            os.sleep(0.1)
+        end
+    end
+end
+
 function Commands.getItem(itemName, count, slot)
     print(itemName .. " " .. count)
     local _, err = ae2_wireless:takeItem(itemName, tonumber(count), tonumber(slot))

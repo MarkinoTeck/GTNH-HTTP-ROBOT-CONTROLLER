@@ -32,6 +32,9 @@ local function dispatch(parts)
             tonumber(parts[5])
         )
 
+    elseif command == "breakdown" then
+        Commands.breakdown()
+
     elseif command == "getblocks" then
         Sender.touchingBlocks()
     elseif command == "scan" then
