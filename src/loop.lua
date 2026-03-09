@@ -34,6 +34,7 @@ local function dispatch(parts)
 
     elseif command == "breakdown" then
         Commands.breakdown()
+        Sender.touchingBlocks()
 
     elseif command == "getblocks" then
         Sender.touchingBlocks()
