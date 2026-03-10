@@ -65,6 +65,7 @@ function Setup.run(conf, robot_api)
         owner         = owner,
         upgrades      = RobotUtils.getUpgrades(),
         inventorySize = robot_api.inventorySize(),
+        type = "robot"
     }
 
     local response, _ = HttpClient.post(
