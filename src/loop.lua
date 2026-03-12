@@ -68,7 +68,7 @@ end
 function Loop.tick()
     Sender.batteryLevel()
 
-    local raw = HttpClient.get(conf:get("ip") .. "/coda/" .. conf:get("id"))
+    local raw = HttpClient.get(conf:get("ip") .. "/coda/robot/" .. conf:get("id"))
 
     if raw == nil then
         return
