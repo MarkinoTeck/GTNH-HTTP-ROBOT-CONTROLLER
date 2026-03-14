@@ -176,6 +176,10 @@ function geolyze.analyzeSide(side)
     pos.crop_air = info.crop_air
     pos.crop_roots = info.crop_roots
 
+    -- custom ae2
+    pos.ae2sides = info.ae2sides
+    pos.ae2fcsides = info.ae2fcsides
+
     return pos
 end
 
