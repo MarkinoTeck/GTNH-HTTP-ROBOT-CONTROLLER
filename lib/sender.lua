@@ -229,6 +229,7 @@ function Sender.touchingBlocks()
                 x        = pos.x + offset.x,
                 y        = pos.y + offset.y,
                 z        = pos.z + offset.z,
+                data     = scan.ae2sides.down.type or nil
             })
         end
     end
