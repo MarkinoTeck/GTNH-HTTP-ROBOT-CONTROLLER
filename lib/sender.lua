@@ -223,13 +223,18 @@ function Sender.touchingBlocks()
                 print(facing, side, offset)
             end
 
+            local aeData = nil
+            if scan.ae2sides and scan.ae2sides.down then
+                aeData = scan.ae2sides.down.type
+            end
+
             table.insert(payload.blocks, {
                 hardness = scan.hardness,
                 name     = scan.name,
                 x        = pos.x + offset.x,
                 y        = pos.y + offset.y,
                 z        = pos.z + offset.z,
-                data     = scan.ae2sides.down.type or nil
+                data     = aeData
             })
         end
     end
