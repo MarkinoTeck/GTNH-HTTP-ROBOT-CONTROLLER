@@ -40,7 +40,8 @@ wget -f https://raw.githubusercontent.com/MarkinoTeck/GTNH-OC-Installer/main/ins
 Inside robot:
 
 - 1x "Screen (Tier 1)"
-- 1x Keyboard
+- 1x "Keyboard"
+- 1x "Disk Drive"
 - 1x "ME Upgrade" (tier 3)
 - 1x "Database Upgrade (Tier 1)"
 - 1x "Angel Upgrade"
@@ -49,8 +50,8 @@ Inside robot:
 - 1x "Memory (Tier 3.5)"
 - 1x "Central Processing Unit (CPU) (Tier 3)"
 - 1x "Internet Card"
-- 1x "EEPROM (Lua BIOS)" <b>with loaded openos softwere</b>
-- 1x "Hard Disk Drive (Tier 3) (4MB)" <b>with loaded openos softwere</b>
+- 1x "EEPROM (Lua BIOS)"
+- 1x "Hard Disk Drive (Tier 3) (4MB)"
 - 1x "Computer Case (Tier 3)"
 - 1x "Navigation Upgrade"
 - 1x "Inventory Controller Upgrade"
