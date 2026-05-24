@@ -4,7 +4,7 @@
 
 - [Information](#information)
 - [Installation](#installation)
-- [Robot Examples](#robot-examples)
+- [Robot Assembly](#robot-examples)
 - [Credits](#credits)
 
 
@@ -25,19 +25,9 @@ And there is also the possibility of auto update at startup.
 > The only way to install the program is to manually transfer it to your computer.
 > The problem is on the java side.
 
-To install program, you need a t3 computer with:
-- Graphics Card (Tier 1+)
-- Central Processing Unit (CPU) (Tier 1+)
-- Memory (Tier 3.5)
-- Hard Disk Drive (Tier 3) (4MB)
-- EEPROM (Lua BIOS)
-- Internet Card
-
-![Computer Example](/docs/installation_computer.png)
-
 ### Downloading softwere using installer:
 
-- Install the basic Open OS on your computer.
+- Install the basic Open OS on your robot.
 - Then run the command to start the installer.
 ```shell
 wget -f https://raw.githubusercontent.com/MarkinoTeck/GTNH-OC-Installer/main/installer.lua && installer
@@ -45,34 +35,7 @@ wget -f https://raw.githubusercontent.com/MarkinoTeck/GTNH-OC-Installer/main/ins
 - Select the "Robot" program in the installer.
 - Enable auto restart typing "y" when prompted.
 
-After installation is completed, you can take move the 'EEPROM' and the 'Hard Disk Drive' to the new robot.
-
-<b>To work the robot equires these upgrades</b> (one each):
-
-- EPROMM and Hard Disk Drive <b>with loaded softwere</b>
-- Internet Card
-- Navigation Upgrade
-- Inventory Upgrade
-- Geolyzer
-- Memory (Tier 3.5)
-- Accelerated Processing Unit (APU) (Tier 2+)
-- Hover Upgrade (Tier 2)
-- Chunkloader Upgrade
-- Angel Upgrade
-- <b>Needed for block placement:</b><br>
-    Inventory controller upgrade<br>
-    ME Upgrade (Tier 3)<br>
-    Database (Tier 1)
-
-Optional Upgrades (one each):
-
-- <b>To use a screen:</b><br>
-    Screen + Keyboard + Graphics card
-
-
-<a id="robot-examples"></a>
-
-## Robot Examples:
+## Robot Assembly:
 
 Inside robot:
 
@@ -86,8 +49,8 @@ Inside robot:
 - 1x "Memory (Tier 3.5)"
 - 1x "Central Processing Unit (CPU) (Tier 3)"
 - 1x "Internet Card"
-- 1x "EEPROM (Lua BIOS)" <b>with loaded softwere</b>
-- 1x "Hard Disk Drive (Tier 3) (4MB)" <b>with loaded softwere</b>
+- 1x "EEPROM (Lua BIOS)" <b>with loaded openos softwere</b>
+- 1x "Hard Disk Drive (Tier 3) (4MB)" <b>with loaded openos softwere</b>
 - 1x "Computer Case (Tier 3)"
 - 1x "Navigation Upgrade"
 - 1x "Inventory Controller Upgrade"
