@@ -55,6 +55,8 @@ local function dispatch(parts)
         Commands.equip()
     elseif command == "placedown" then
         Commands.placeDown(parts)
+    elseif command == "place" then
+        Commands.placeInFront(parts)
     elseif command == "placeup" then
         Commands.placeUp(parts)
     elseif command == "use" then

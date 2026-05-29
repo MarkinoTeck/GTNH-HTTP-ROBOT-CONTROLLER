@@ -153,6 +153,10 @@ function Commands.placeDown(parts)
     resolveAndLog("placedown", robot_api.placeDown, parts)
 end
 
+function Commands.placeInFront(parts)
+    resolveAndLog("placeInFront", robot_api.place, parts)
+end
+
 function Commands.placeUp(parts)
     resolveAndLog("placeup", robot_api.placeUp, parts)
 end
