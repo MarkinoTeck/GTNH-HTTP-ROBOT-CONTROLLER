@@ -106,22 +106,8 @@ function Scanlib.scanAndBreakBelow(robotPos, toolSlot, wrenchSlot)
 
         local previousSlot = robot.select()
 
-        -- Usa strumento normale (tipo pickaxe)
+        -- tool slot
         robot.select(toolSlot)
-
-        -- Verifica strumento
-        local durability = robot.durability()
-        if not durability then
-            print("ERROR: No tool in slot " .. toolSlot)
-            robot.select(previousSlot)
-            return blockInfo, false, "no_tool"
-        end
-
-        if durability < 5 then
-            print("WARNING: Tool almost broken! (" .. durability .. "%)")
-        end
-
-        print("Using tool from slot " .. toolSlot .. " (durability: " .. durability .. "%)")
 
         -- Prova a rompere (max 15 tentativi)
         local maxAttempts = 15
@@ -156,19 +142,13 @@ function Scanlib.scanAndBreakBelow(robotPos, toolSlot, wrenchSlot)
             print("FAILED to break block after " .. maxAttempts .. " attempts")
             print("Last reason: " .. (lastReason or "unknown"))
             print("Block ID: " .. blockInfo.block_id)
-            print("This block may require:")
-            print("  - Different tool type (pickaxe/wrench/shovel)")
-            print("  - Better tool tier (stone/iron/diamond)")
-            print("  - Special permissions/creative mode")
 
             robot.select(previousSlot)
             return blockInfo, false, "unbreakable"
         end
 
-        -- Aspetta che gli items cadano
-        os.sleep(0.3)
-
         -- Raccogli gli item
+        os.sleep(0.3)
         for i = 1, 5 do
             robot.suckDown()
             os.sleep(0.1)
